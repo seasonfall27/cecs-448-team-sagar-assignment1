@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CECS 448 Form</title>
+        <meta name="description" content="Assignment 1: Create an interactive and responsive form.">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        
+        <h1><center>Create User Account</center></h1>
+        
+        <form action="/action_page.php">
+            <p>
+                <label for="uname">Username:</label><br>
+                <input type="text" id="uname" name="uname"%>
+            </p><p>
+                <label for="fname">First Name:</label><br>
+                <input type="text" id="fname" name="fname">
+            </p><p>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" id="lname" name="lname">
+            </p><p>
+                <label for="pword">Password (8 characters min):</label><br>
+                <input type="password" id="pword" name="pword" minlength="8" required>
+            </p><p>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email">
+            </p><p>
+                <label for="upfiles">Upload files:</label>
+                    <input type="file" id="upfiles" name="upfiles" multiple>
+            </p>
+            <input type="submit" value="Submit">
+        </form>
+        
+    </body>
+</html>
