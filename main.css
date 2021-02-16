@@ -72,10 +72,12 @@ input[type=submit] {
     font-weight: bold;
     letter-spacing: 2px;
     color: #fff;
+    transition: 0.3s;
 }
 
 input[type=submit]:hover {
     background-color: #9dffb0
+}
 
 textarea {
     width: 95%;
