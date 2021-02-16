@@ -74,6 +74,9 @@ input[type=submit] {
     color: #fff;
 }
 
+input[type=submit]:hover {
+    background-color: #9dffb0
+
 textarea {
     width: 95%;
     padding: 5px;
