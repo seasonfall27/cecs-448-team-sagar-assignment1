@@ -6,33 +6,49 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>CECS 448 Form</title>
         <meta name="description" content="Assignment 1: Create an interactive and responsive form.">
+        <link href='http://fonts.googleapis.com/css?family=Dancing+Script|Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
         
         <h1><center>Create User Account</center></h1>
         
-        <form action="/action_page.php">
-            <p>
-                <label for="uname">Username:</label><br>
-                <input type="text" id="uname" name="uname"%>
-            </p><p>
-                <label for="fname">First Name:</label><br>
-                <input type="text" id="fname" name="fname">
-            </p><p>
-                <label for="lname">Last Name:</label><br>
-                <input type="text" id="lname" name="lname">
-            </p><p>
-                <label for="pword">Password (8 characters min):</label><br>
-                <input type="password" id="pword" name="pword" minlength="8" required>
-            </p><p>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email">
-            </p><p>
-                <label for="upfiles">Upload files:</label>
-                    <input type="file" id="upfiles" name="upfiles" multiple>
-            </p>
-            <input type="submit" value="Submit">
+        <form action="action_page.php">
+        <table class="form" align="center" width="80%" cellpadding="10" cellspacing="10">
+            <tr>
+                <td align="right">Username</td>
+                <td><input type="text" name="uname" id="uname" value=""></td>
+            </tr>
+            <tr>
+                <td align="right">First Name</td>
+                <td><input type="text" name="fname" id="fname" value=""></td>
+            </tr>
+            <tr>
+                <td align="right">Last Name</td>
+                <td><input type="text" name="lname" id="lname" value=""></td>
+            </tr>
+            <tr>
+                <td align="right">Password</td>
+                <td><input type="password" name="pword" id="pword" placeholder="8 characters minimum required." minlength="8" required></td>
+            </tr>
+            <tr>
+              <td align="right">Email</td>
+              <td><input type="email" name="email" id="email" value=""></td>
+            </tr>
+            <tr>
+              <td align="right">Upload files</td>
+              <td><input type="file" name="myfiles" id="myfiles" multiple></td>
+            </tr>
+            
+            <tr>
+              <td align="right">Comments</td>
+              <td><textarea name="comments" id="comments" cols="20" rows="3" placeholder="Any questions, concerns or comments can go here."></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="submit" id="submit" value="Submit"></td>
+            </tr>
+        </table>
         </form>
         
     </body>

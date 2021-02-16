@@ -1,37 +1,26 @@
 html {
-    background: #e6e9e9;
-    background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%);
+    background-color: #ccebf1;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background: #fff;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
-    color: #545454;
-    font-family: "Calibri", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    color: #383838;
+    font-family: "Roboto";
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 2px;
     line-height: 1.5;
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 2em 2em 4em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #222;
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-h2 {
-    margin-top: 1.3em;
-}
-
-a {
-    color: #0083e8;
-}
-
-b, strong {
-    font-weight: 600;
+h1 {
+    color: #383838;
+    font-family: 'Dancing Script', cursive;
+    text-transform: none;
+    font-size: 60px;
+    
+    line-height: 0.3;
 }
 
 img {
@@ -44,13 +33,53 @@ img {
     max-width: 95%;
 }
 
-@keyframes colorize {
-    0% {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
-    100% {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%);
-    }
+
+
+/* FORM TABLE FEATURES */
+
+table{
+    max-width: 800px;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding:0px;
+    border-radius: 20px;
+    background:#fff;
+}
+
+table td{
+    padding:3px 3px 3px 3px;
+    text-align:center;
+    border-radius: 10px;
+    background:#DAF3F8;
+}
+
+input {
+    width: 95%;
+    padding: 5px;
+    border: 1px dashed #383838;
+    background-color: #fff;
+    border-radius: 10px;
+    font-family: 'Roboto';
+    font-size: 14px;
+}
+
+input[type=submit] {
+    padding: 10px;
+    width: 25%;
+    background-color: #383838;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+textarea {
+    width: 95%;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px dashed #383838;
+    border-radius: 10px;
+    font-family: 'Roboto';
+    font-size: 14px;
 }
