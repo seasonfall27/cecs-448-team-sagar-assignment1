@@ -11,13 +11,25 @@
         <title>CECS 448 Form</title>
         <meta name="description" content="Assignment 1: Create an interactive and responsive form.">
         <link href='http://fonts.googleapis.com/css?family=Dancing+Script|Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="main.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     </head>
     <body>
         
         <h1><center>Create User Account</center></h1>
         
-        <! -- Added onSubmit to call submitFunction -->
+        <!-- Added a section for the uploaded image -->
+        <div class="container">
+            <div class="wrapper">
+                <div class="image">
+                  <img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg">
+                </div>
+                <div id="cancel-btn"><i class="fa fa-remove"></i></div>
+            </div>
+        </div>
+        
+        <!-- Added onSubmit to call submitFunction -->
         <form onsubmit="submitFunction();return false;">
         <table class="form" align="center" width="80%" cellpadding="10" cellspacing="10">
             <tr>
@@ -53,13 +65,13 @@
                 <td colspan="2">
                     <input type="submit" name="submit" id="submit" value="Submit"></td>
             </tr>
-                <! -- Loader animation - hidden at first until submission -->
+                <!-- Loader animation - hidden at first until submission -->
                 <td colspan="2"><center>
                     <span class="loader" id="loader"></span></center>
         </table>
         </form>
         
-        <! -- Javascript for loading animation and confirmation popup -->
+        <!-- Javascript for loading animation and confirmation popup -->
         <script>
             function submitFunction() {  
                 console.log("Hello");
@@ -79,6 +91,29 @@
                 }, 1000);
             }
             
+            //Javascript for image upload and cancel button  
+            const wrapper = document.querySelector(".wrapper");
+            const inputBtn = document.querySelector("#myfiles");
+            const img = document.querySelector("img");
+            const cancelBtn = document.querySelector("#cancel-btn i");
+            
+            inputBtn.addEventListener("change",function(){
+                 const file = this.files[0];
+                 if(file){
+                 const reader = new FileReader();
+                 reader.onload = function(){
+                    const result = reader.result;
+                    img.src = result;
+                    wrapper.classList.add("active");
+                 }
+                 cancelBtn.addEventListener("click", function(){
+                    img.src = "https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg";
+                    wrapper.classList.remove("active");
+                    document.querySelector('#myfiles').value = "";
+                })
+                 reader.readAsDataURL(file);
+               }
+            });
         </script>
         
     </body>

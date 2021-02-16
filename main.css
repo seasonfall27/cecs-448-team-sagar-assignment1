@@ -110,3 +110,60 @@ textarea {
     transform: rotate(360deg);
   }
 } 
+
+/* CSS for uploaded image */
+.container{
+    height: 350px;
+    width: 350px;
+    margin: auto;
+}
+
+.container .wrapper{
+    position: relative;
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px dashed #383838;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.wrapper .image{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper img{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.wrapper #cancel-btn i{
+    position: absolute;
+    font-size: 20px;
+    right: 10px;
+    top: 10px;
+    color: #383838;
+    cursor: pointer;
+    display: none;
+}
+
+.wrapper.active:hover #cancel-btn i{
+    display: block;
+}
+
+.wrapper #cancel-btn i:hover{
+    color: #9dffb0;
+}
+
+
