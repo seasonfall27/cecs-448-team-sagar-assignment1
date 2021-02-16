@@ -3,6 +3,8 @@
     
     <! -- Added JQuery for easier Javascript functionality -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <! -- Added SweetAlert JS for popup message -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,7 +69,13 @@
                     $('#loader').fadeOut('fast');
                 }, 700);
                 setTimeout(function() {
-                    alert("Your submission to the form has been confirmed!");
+                    //alert("Your submission to the form has been confirmed!");
+                    swal({
+                      title: "Submission Success!",
+                      text: "New user account has been created.",
+                      icon: "success",
+                      button: "Great!",
+                    });
                 }, 1000);
             }
             
