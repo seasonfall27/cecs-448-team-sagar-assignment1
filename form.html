@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     
+    <! -- Added JQuery for easier Javascript functionality -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +15,8 @@
         
         <h1><center>Create User Account</center></h1>
         
-        <form action="action_page.php">
+        <! -- Added onSubmit to call submitFunction -->
+        <form onsubmit="submitFunction();return false;">
         <table class="form" align="center" width="80%" cellpadding="10" cellspacing="10">
             <tr>
                 <td align="right">Username</td>
@@ -48,8 +51,27 @@
                 <td colspan="2">
                     <input type="submit" name="submit" id="submit" value="Submit"></td>
             </tr>
+                <! -- Loader animation - hidden at first until submission -->
+                <td colspan="2"><center>
+                    <span class="loader" id="loader"></span></center>
         </table>
         </form>
+        
+        <! -- Javascript for loading animation and confirmation popup -->
+        <script>
+            function submitFunction() {  
+                console.log("Hello");
+                div = document.getElementById("loader");
+                div.style.display = "block";
+                setTimeout(function() {
+                    $('#loader').fadeOut('fast');
+                }, 700);
+                setTimeout(function() {
+                    alert("Your submission to the form has been confirmed!");
+                }, 1000);
+            }
+            
+        </script>
         
     </body>
 </html>
