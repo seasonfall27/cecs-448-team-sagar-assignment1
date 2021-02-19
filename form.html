@@ -19,22 +19,23 @@
         
         <h1><center>Create User Account</center></h1>
         
+        <!-- Circular Progress Animation -->
+        <div class="circular">
+          <div class="inner"></div>
+          <div class="numb">0%</div>
+          <div class="circle">
+            <div class="bar left">
+              <div class="progress"></div>
+            </div>
+            <div class="bar right">
+              <div class="progress"></div>
+            </div>
+          </div> 
+        </div>
+            
         <!-- Added a section for the uploaded image -->
         <div class="container">
             <div class="wrapper">
-                <!-- Circular Progress Animation -->
-                <div class="circular">
-                    <div class="inner"></div>
-                    <div class="numb">0%</div>
-                    <div class="circle">
-                      <div class="bar left">
-                        <div class="progress"></div>
-                      </div>
-                      <div class="bar right">
-                        <div class="progress"></div>
-                      </div>
-                    </div> 
-                </div>
                 <div class="image">
                   <img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg">
                 </div>
@@ -43,7 +44,7 @@
         </div>
         
         <!-- Added onSubmit to call submitFunction -->
-        <form onsubmit="submitFunction();return false;">
+        <form onsubmit="submitFunction();return false;" upload="processingPhoto();return false;">
         <table class="form" align="center" width="80%" cellpadding="10" cellspacing="10">
             <tr>
                 <td align="right">Username</td>
@@ -102,6 +103,17 @@
                       button: "Great!",
                     });
                 }, 1000);
+            }
+            
+            //function that processes and loads the photo
+            function processingPhoto() {
+                const prog = document.querySelector(".circular");
+                setTimeout(function() {
+                    swal({
+                        title: "Uploading photo...",
+                        content: prog,
+                    });
+                }, 3000); 
             }
             
             //Javascript for image upload and cancel button  
