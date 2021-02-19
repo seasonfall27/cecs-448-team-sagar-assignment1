@@ -20,18 +20,20 @@
         <h1><center>Create User Account</center></h1>
         
         <!-- Circular Progress Animation -->
-        <div class="circular">
-          <div class="inner"></div>
-          <div class="numb">0%</div>
-          <div class="circle">
-            <div class="bar left">
-              <div class="progress"></div>
+        <center>
+            <div class="circular">
+              <div class="inner"></div>
+              <div class="numb">0%</div>
+              <div class="circle">
+                <div class="bar left">
+                  <div class="progress"></div>
+                </div>
+                <div class="bar right">
+                  <div class="progress"></div>
+                </div>
+              </div> 
             </div>
-            <div class="bar right">
-              <div class="progress"></div>
-            </div>
-          </div> 
-        </div>
+        </center>
             
         <!-- Added a section for the uploaded image -->
         <div class="container">
@@ -44,7 +46,7 @@
         </div>
         
         <!-- Added onSubmit to call submitFunction -->
-        <form onsubmit="submitFunction();return false;" upload="processingPhoto();return false;">
+        <form onsubmit="submitFunction();return false;">
         <table class="form" align="center" width="80%" cellpadding="10" cellspacing="10">
             <tr>
                 <td align="right">Username</td>
@@ -68,7 +70,7 @@
             </tr>
             <tr>
               <td align="right">Upload files</td>
-              <td><input type="file" name="myfiles" id="myfiles" multiple required></td>
+              <td><input type="file" name="myfiles" button onclick="processingPhoto()" id="myfiles" multiple required></td>
             </tr>
             
             <tr>
@@ -105,10 +107,15 @@
                 }, 1000);
             }
             
+            //$('#circular').hide();
+            
             //function that processes and loads the photo
             function processingPhoto() {
-                const prog = document.querySelector(".circular");
+                prog = document.getElementById("circular");
+                prog.style.display = "none";
                 setTimeout(function() {
+                    //$('#circular').show();
+                    prog.style.display = "block";
                     swal({
                         title: "Uploading photo...",
                         content: prog,
@@ -124,30 +131,35 @@
             
             inputBtn.addEventListener("change",function(){
                  const file = this.files[0];
+//                 prog = document.getElementById("circular");
+//                 prog.style.display = "none";
                  if(file){
                  const reader = new FileReader();
                  //Javascript for circular progress animation
                  const numb = document.querySelector(".numb");
                  let counter = 0;
                  setInterval(() => {
-                 if(counter == 100){
-                     clearInterval();
-                }else{
-                    counter += 1;
-                    numb.textContent = counter + "%";
-                }
-            }, 20);
-                 reader.onload = function(){
-                    const result = reader.result;
-                    img.src = result;
-                    wrapper.classList.add("active");
+                     if(counter == 100){
+                        clearInterval();
+                    }else{
+                        counter += 1;
+                        numb.textContent = counter + "%";
+                    }
+                 }, 20);
+                
+                 setTimeout(function processingPhoto() {
+                     reader.onload = function processingPhoto(){
+                     const result = reader.result;
+                     img.src = result;
+                     wrapper.classList.add("active");
                  }
+                     reader.readAsDataURL(file);
+              }, 2100);
                  cancelBtn.addEventListener("click", function(){
                     img.src = "https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg";
                     wrapper.classList.remove("active");
                     document.querySelector('#myfiles').value = "";
                 })
-                 reader.readAsDataURL(file);
                }
             });
         </script>
