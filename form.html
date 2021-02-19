@@ -21,7 +21,7 @@
         
         <!-- Circular Progress Animation -->
         <center>
-            <div class="circular">
+            <div class="circular" id="circular">
               <div class="inner"></div>
               <div class="numb">0%</div>
               <div class="circle">
@@ -70,7 +70,7 @@
             </tr>
             <tr>
               <td align="right">Upload files</td>
-              <td><input type="file" name="myfiles" button onclick="processingPhoto()" id="myfiles" multiple required></td>
+              <td><input type="file" name="myfiles" id="myfiles" multiple required></td>
             </tr>
             
             <tr>
@@ -106,22 +106,27 @@
                     });
                 }, 1000);
             }
-            
-            //$('#circular').hide();
-            
+        
+            prog = document.getElementById("circular");
+            prog.style.display = "none";
             //function that processes and loads the photo
             function processingPhoto() {
-                prog = document.getElementById("circular");
-                prog.style.display = "none";
-                setTimeout(function() {
-                    //$('#circular').show();
-                    prog.style.display = "block";
-                    swal({
-                        title: "Uploading photo...",
-                        content: prog,
-                    });
-                }, 3000); 
-            }
+                //prog = document.getElementById("circular");
+                //prog.style.display = "none";
+                swal({
+                    title: "Uploading photo...",
+                    content: prog,
+                });
+//            setTimeout(function() {
+//                alert("Photo uploaded!");
+//                swal({
+//                  title: "Upload Success!",
+//                  text: "Photo has been uploaded.",
+//                  icon: "success",
+//                  button: "OK",
+//                });
+//            }, 1000);   
+        }
             
             //Javascript for image upload and cancel button  
             const wrapper = document.querySelector(".wrapper");
@@ -135,6 +140,8 @@
 //                 prog.style.display = "none";
                  if(file){
                  const reader = new FileReader();
+                   prog.style.display = "block";
+                   prog = function processingPhoto();
                  //Javascript for circular progress animation
                  const numb = document.querySelector(".numb");
                  let counter = 0;
@@ -146,23 +153,20 @@
                         numb.textContent = counter + "%";
                     }
                  }, 20);
-                
-                 setTimeout(function processingPhoto() {
-                     reader.onload = function processingPhoto(){
+                     
+                     reader.onload = function(){
                      const result = reader.result;
                      img.src = result;
                      wrapper.classList.add("active");
                  }
                      reader.readAsDataURL(file);
-              }, 2100);
-                 cancelBtn.addEventListener("click", function(){
-                    img.src = "https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg";
-                    wrapper.classList.remove("active");
-                    document.querySelector('#myfiles').value = "";
-                })
-               }
-            });
+                     cancelBtn.addEventListener("click", function(){
+                     img.src = "https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg";
+                     wrapper.classList.remove("active");
+                     document.querySelector('#myfiles').value = "";
+                 })
+                }
+             });
         </script>
-        
     </body>
 </html>
