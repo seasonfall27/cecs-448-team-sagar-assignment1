@@ -114,6 +114,17 @@
                  const file = this.files[0];
                  if(file){
                  const reader = new FileReader();
+                 //Javascript for circular progress animation
+                 const numb = document.querySelector(".numb");
+                 let counter = 0;
+                 setInterval(() => {
+                 if(counter == 100){
+                     clearInterval();
+                }else{
+                    counter += 1;
+                    numb.textContent = counter + "%";
+                }
+            }, 20);
                  reader.onload = function(){
                     const result = reader.result;
                     img.src = result;
